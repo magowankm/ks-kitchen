@@ -266,7 +266,15 @@
             color: #777;
             font-size: 0.85rem;
             text-align: center;
-            padding: 15px;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .recipe-info {
@@ -669,7 +677,11 @@
             recipeGrid.innerHTML = cuisine.recipes.map(
                 (recipe) => `
                     <a class="recipe-card" href="${recipe.href || '#'}">
-                        <div class="recipe-image">${recipe.image || "Add photo"}</div>
+                        <div class="recipe-image">
+                            ${recipe.image 
+                                ? `<img src="${recipe.image}" alt="${recipe.name}">`
+                                : "Add photo"}
+                        </div>
                         <div class="recipe-info">
                             <h3>${recipe.name}</h3>
                             <p>${recipe.description}</p>
