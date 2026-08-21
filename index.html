@@ -217,6 +217,10 @@
             background-color: #5c536d;
         }
 
+        .moroccan {
+            background-color: #FF0000;
+        }
+
           /* =========================
               RECIPE SECTION
           ========================= */
@@ -440,6 +444,10 @@
                     Japanese
                 </a>
 
+                <a class="menu-item" href="?cuisine=moroccan">
+                    Moroccan
+                </a>
+
             </div>
 
         </div>
@@ -597,6 +605,28 @@
                     "Balanced and refined dishes emphasizing fresh ingredients, umami-rich flavors, rice, noodles, vegetables, and traditional Japanese techniques.",
                 colorClass: "japanese",
                 recipes: [
+                    { name: "Chicken Teriyaki", description: "Tender chicken glazed with a glossy, sweet-savory teriyaki sauce." },
+                    { name: "Miso Soup", description: "A soothing broth with miso, tofu, seaweed, and fresh scallions." },
+                    { name: "Vegetable Sushi", description: "Seasoned rice and crisp vegetables rolled into neat, shareable pieces." }
+                ]
+            },
+
+            moroccan: {
+                name: "Moroccan",
+                description:
+                    "Warm and aromatic dishes featuring complex spice blends, slow-cooked stews, tagines, and traditional Moroccan flavors.",
+                colorClass: "moroccan",
+                recipes: [
+                    { name: "Harissa Chicken", description: "Tender chicken slow-cooked with harissa sauce and a blend of aromatic spices." },
+                    { name: "Chicken Pastilla", description: "Flaky pastry filled with spiced chicken and almonds." },
+                    { name: "Harira Soup", description: "A hearty soup with tomatoes, lentils, and a variety of spices." }
+                ]
+            }
+
+        };
+
+
+        /* Get page elements */
                     { name: "Chicken Teriyaki", description: "Tender chicken glazed with a glossy, sweet-savory teriyaki sauce." },
                     { name: "Miso Soup", description: "A soothing broth with miso, tofu, seaweed, and fresh scallions." },
                     { name: "Vegetable Sushi", description: "Seasoned rice and crisp vegetables rolled into neat, shareable pieces." }
