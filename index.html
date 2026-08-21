@@ -82,9 +82,14 @@
             z-index: 100;
         }
 
-        /* Show dropdown when hovering over Menu */
-        .menu:hover .menu-content {
+        .menu.is-open .menu-content {
             display: block;
+        }
+
+        @media (min-width: 601px) {
+            .menu:hover .menu-content {
+                display: block;
+            }
         }
 
         .menu-content a {
@@ -380,11 +385,16 @@
         <!-- Hover Menu -->
         <div class="menu">
 
-            <div class="menu-button">
+            <button
+                class="menu-button"
+                type="button"
+                aria-expanded="false"
+                aria-controls="menu-content"
+            >
                 Menu ▾
-            </div>
+            </button>
 
-            <div class="menu-content">
+            <div id="menu-content" class="menu-content">
 
                 <div class="menu-section-title">
                     Breakfast
@@ -685,6 +695,31 @@
             );
 
         }
+
+        const menu = document.querySelector(".menu");
+        const menuButton = document.querySelector(".menu-button");
+
+        function setMenuOpen(isOpen) {
+            menu.classList.toggle("is-open", isOpen);
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+        }
+
+        menuButton.addEventListener("click", () => {
+            setMenuOpen(!menu.classList.contains("is-open"));
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!menu.contains(event.target)) {
+                setMenuOpen(false);
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                setMenuOpen(false);
+                menuButton.focus();
+            }
+        });
 
     </script>
 
